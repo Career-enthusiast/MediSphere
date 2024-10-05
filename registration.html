@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN FORM</title>
+    <link rel="stylesheet" href="style_login_register.css">
+</head>
+<body>
+    <section>
+        <div class="login-box2">
+            <form id="registrationForm" method="post">
+                <h1>REGISTRATION</h1>
+                <div class="row">
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="person-circle"></ion-icon>
+                        </span>
+                        <input type="text" name="first_name" required>
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="person-circle"></ion-icon>
+                        </span>
+                        <input type="text" name="last_name" required>
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="mail"></ion-icon>
+                        </span>
+                        <input type="email" name="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </span>
+                        <input type="password" name="password" required>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </span>
+                        <input type="password" name="create_password" required>
+                        <label for="create_password">Create Password</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="lock-closed"></ion-icon>
+                        </span>
+                        <input type="password" name="confirm_password" required>
+                        <label for="confirm_password">Retype Password</label>
+                    </div>
+                </div>
+
+                <div class="user-role">
+                    <label><input type="radio" name="role" value="doctor" required> Doctor</label>
+                    <label><input type="radio" name="role" value="patient" required> Patient</label>
+                </div>
+
+                <button type="submit">Sign Up</button>
+                <div class="register-link"> 
+                    <p>Already have an account? <a href="login.html">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        // JavaScript to handle form submission
+        const form = document.getElementById('registrationForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const firstName = form.first_name.value.trim();
+            const lastName = form.last_name.value.trim();
+            const email = form.email.value.trim();
+            const password = form.password.value.trim();
+            const confirmPassword = form.confirm_password.value.trim();
+
+            if (firstName && lastName && email && password && confirmPassword) {
+                window.location.href = 'login.html';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    </script>
+</body>
+</html>

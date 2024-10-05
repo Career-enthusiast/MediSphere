@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN FORM</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div>
+        <nav class="navbar">
+            <hr><hr>
+            <div class="navbar-content">
+                <div class="logo">
+                    <!-- Logo image before the text -->
+                    <img src="logo.png" alt="Logo" width="60px" height="60px" style="vertical-align: middle;">
+                    <h1 style="display: inline; vertical-align: middle; color: aliceblue;">Medi Sphere</h1>
+                </div>
+
+                <!-- Search Form (aligned to the right) -->
+                <form id="search-form" class="search-form" onsubmit="return searchFunction()">
+                    <input type="text" id="search-input" placeholder="Search..." aria-label="Search">
+                    <button type="submit"><ion-icon name="search"></ion-icon></button>
+                </form>
+            </div>
+            <hr>
+            <ul>
+                <li><a href="HOME.html"><span class="icon">
+                    <ion-icon name="home"></ion-icon>
+                </span>HOME</a></li>
+                <li class="dropdown">
+                    <a href="Health Condition.html" class="dropbtn"><span class="icon">
+                        <ion-icon name="medkit"></ion-icon>
+                    </span>Health Condition</a>
+                    <div class="dropdown-content">
+                        <a>Ayurvedics</a>
+                        <a>Herbal</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="Medicines.html" class="dropbtn"><span class="icon">
+                        <ion-icon name="nutrition"></ion-icon>
+                    </span>Nutrition Supplements</a>
+                    <div class="dropdown-content">
+                        <a>Ayurvedics</a>
+                        <a>Herbal</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="Health_Care.html" class="dropbtn"><span class="icon">
+                        <ion-icon name="thermometer"></ion-icon>
+                    </span>Health Care</a>
+                    <div class="dropdown-content">
+                        <a>Ayurvedics</a>
+                        <a>Herbal</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="Health_Corner.html" class="dropbtn"><span class="icon" >
+                        <ion-icon name="heart"></ion-icon>
+                    </span>Health Corner</a>
+                    <div class="dropdown-content">
+                        <a>Ayurvedics</a>
+                        <a>Herbal</a>
+                    </div>
+                </li>
+                <li><a href="Cart.html"><span class="icon">
+                    <ion-icon name="cart"></ion-icon>
+                </span>Cart</a></li>
+                <li><a href="Profile.html"><span class="icon">
+                    <ion-icon name="people"></ion-icon>
+                </span>Profile</a></li>
+            </ul>
+            <hr><hr>
+        </nav>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- JavaScript for Search -->
+    <script>
+        function searchFunction() {
+            const query = document.getElementById('search-input').value.trim();
+            if (query) {
+                // Example logic for search. Redirect to a search results page (or use alert for testing)
+                window.location.href = `search_results.html?query=${query}`;
+            } else {
+                alert('Please enter a search term');
+            }
+            return false; // Prevent form from submitting the traditional way
+        }
+    </script>
+</body>
+
+</html>

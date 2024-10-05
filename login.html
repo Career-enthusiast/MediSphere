@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN FORM</title>
+    <link rel="stylesheet" href="style_login_register.css">
+</head>
+
+<body>
+    <section>
+        <div class="login-box">
+            <form action=" " method="post">
+                <h2>Login</h2>
+
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" name="password" required>
+                    <label for="password">Password</label>
+                </div>
+
+                <!-- User Role Selection -->
+                <div class="user-role">
+                    <label><input type="radio" name="role" value="doctor" required> Doctor</label>
+                    <label><input type="radio" name="role" value="admin" required> Admin</label>
+                    <label><input type="radio" name="role" value="Patient" required> Patient</label>
+                </div>
+
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <button type="submit">Login</button>
+
+                <div class="register-link">
+                    <p>Don't have an account? <a href="registration.html">Register</a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        // Get the login form
+        const form = document.querySelector('form');
+
+        // Add event listener to the form
+        form.addEventListener('submit', function(event) {
+            // Prevent default form submission
+            event.preventDefault();
+
+            // Get email, password, and role values
+            const email = form.email.value.trim();
+            const password = form.password.value.trim();
+            const role = form.role.value;
+
+            // Check if email, password, and role are filled
+            if (email && password && role) {
+                // Redirect to the respective home page based on the role
+                if (role === 'doctor') {
+                    window.location.href = 'home.html';
+                } else if (role === 'admin') {
+                    window.location.href = 'home.html';
+                } else if (role === 'Patient') {
+                    window.location.href = 'home.html';
+                }
+            } else {
+                // If any field is empty, alert the user
+                alert('Please fill in all fields.');
+            }
+        });
+    </script>
+</body>
+</html>
