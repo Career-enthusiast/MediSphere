@@ -1,0 +1,234 @@
+/* General Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-image: url("doctor.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    height: 100vh; /* Full viewport height */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Navigation bar styling */
+.navbar {
+    position: relative;
+    z-index: 10;
+}
+
+/* Flex container for logo and search bar */
+.navbar-content {
+    display: flex;
+    justify-content: space-between; /* Pushes logo to the left and search to the right */
+    align-items: center; /* Align items vertically in the center */
+    padding: 10px;
+    background-color: rgba(36, 101, 106, 0.65); /* Transparent background */
+}
+
+.logo img {
+    vertical-align: middle;
+}
+
+.logo h1 {
+    color: aliceblue;
+    margin-left: 10px;
+    display: inline;
+    vertical-align: middle;
+}
+
+/* Search bar styling */
+.search-form {
+    display: flex; /* Inline alignment of input and button */
+    align-items: end;
+}
+
+#search-input {
+    padding: 6px;
+    border: 2px solid #ffffff;
+    border-radius: 16px;
+    font-size: 15px;
+    color: #333;
+    width: 300px; /* Adjust width of search input */
+    margin-right: 10px;
+}
+
+button[type="submit"] {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    margin-right: 100px;
+}
+
+/* Navbar links styling */
+.navbar ul {
+    list-style-type: none;
+    background-color: rgba(36, 101, 106, 0.65); /* Transparent background for navbar */
+    padding: 10px;
+    margin-top: 0px;
+    overflow: hidden;
+}
+
+.navbar a {
+    color: aliceblue;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    text-align: center;
+}
+
+.navbar a:hover {
+    background-color: rgba(36, 101, 106, 0.65);
+}
+
+.navbar li {
+    float: inline-start;
+    margin-left: 30px;
+}
+
+/* Dropdown menu */
+li a, .dropbtn {
+    display: inline-block;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: none;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(36, 101, 106, 0.65);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: rgb(21, 6, 6);
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Cart Styles */
+.cart-container {
+    background-color: rgba(36, 101, 106, 0.65);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 80px;
+    margin-left: 50px;
+    width: 80%; /* Width of the cart container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-items {
+    margin-bottom: 20px;
+}
+
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.cart-item img.cart-item-image {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.cart-item-details h3 {
+    margin: 0 0 5px;
+}
+
+.cart-item-details p {
+    margin: 0;
+    color: #666;
+}
+
+.cart-item-actions {
+    display: flex; /* Aligns buttons horizontally */
+    flex-direction: row; /* Stacks buttons vertically */
+    gap: 10px; /* Space between buttons */
+    margin-top: 10px; /* Space above the buttons */
+    align-items: flex-start; /* Align buttons to the left */
+}
+
+
+
+.remove-item {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+.remove-item:hover {
+    background-color: #ff1a1a;
+}
+
+.save-for-later {
+    background-color: #007bff; /* Blue background for save button */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+}
+
+.save-for-later:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Cart Summary */
+.cart-summary {
+    text-align: right;
+}
+
+.cart-summary h3 {
+    margin-bottom: 10px;
+}
+
+.checkout-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background-color: #218838;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        background-color: rgba(36, 101, 106, 0.65);
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item img.cart-item-image {
+        margin-bottom: 10px;
+    }
+}
