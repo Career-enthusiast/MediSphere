@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
     <div>
         <nav class="navbar">
             <hr>
@@ -79,35 +80,119 @@
             <hr>
         </nav>
     </div>
-    <div class="cart-container">
-        <h2>Your Cart</h2>
-        <div class="cart-items">
-            <!-- Example item -->
+   <div class="cart-container">
+        <h2 id="card_head">Your Cart</h2>
+        <hr>
+        <hr class="line_heading">
+        <div class="cart-items"><!-- Example item -->
             <div class="cart-item">
-                    <img src="image.png" alt="Item Image" class="cart-item-image">
-                    <div class="cart-item-details">
-                        <h3>Item Name</h3>
-                        <p>Quantity: 1</p>
-                        <p>Price: $10.00</p>
-                    </div>
+                <input type="checkbox" class="item-select">
+                <img src="500mg-paracetamol-tablet.png" alt="Item Image" class="cart-item-image">
+
+                <div class="cart-item-details">
+                    <h3>Paracetamal tablet | fever |</h3>
+                    <p><b>"Headache"</b></p>
+                    <br>
+                    <p>PARACIP-500</p>
                     <div class="cart-item-actions">
+                        <label for="qty1">Qty: </label>
+                        <input type="number" id="qty1" value="1" min="1">
                         <button class="remove-item">Remove</button>
                         <button class="save-for-later">Save for later</button>
                     </div>
+                    <div class="price">
+                        <p>Rs 150.00</p>
+                    </div>
+                </div>                                      
             </div>
-            
+
+            <hr>
+
+            <div class="cart-item">
+                <input type="checkbox" class="item-select">
+                <img src="cetirizine-tablets-ip-10mg.png" alt="Item Image" class="cart-item-image">
+
+                <div class="cart-item-details">
+                    <h3>Cetrizine tablet | Cold |</h3>
+                    <p><b>"Running Nose"</b></p>
+                    <br>
+                    <p>cetlergy-10</p>
+                    <div class="cart-item-actions">
+                        <label for="qty1">Qty: </label>
+                        <input type="number" id="qty1" value="1" min="1">
+                        <button class="remove-item">Remove</button>
+                        <button class="save-for-later">Save for later</button>
+                    </div>
+                    <div class="price">
+                        <p>Rs 80.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="cart-item">
+                <input type="checkbox" class="item-select">
+                <img src="sugar.png" alt="Item Image" class="cart-item-image">
+
+                <div class="cart-item-details">
+                    <h3> Amlodipine Besylate | Diabeties |</h3>
+                    <p><b>"Sugar control"</b></p>
+                    <br>
+                    <p>AMDEPIN-2.5</p>
+                    <div class="cart-item-actions">
+                        <label for="qty1">Qty: </label>
+                        <input type="number" id="qty1" value="1" min="1">
+                        <button class="remove-item">Remove</button>
+                        <button class="save-for-later">Save for later</button>
+                    </div>
+                    <div class="price">
+                        <p>Rs 150.00</p>
+                    </div>
+                </div>                                    
+            </div>
+
+            <hr>
+
+            <div class="cart-item">
+                <input type="checkbox" class="item-select">
+                <img src="bp.png" alt="Item Image" class="cart-item-image">
+
+                <div class="cart-item-details">
+                    <h3>Glimepiride, Pioglitazone and Metformin Hydrochloride </h3>
+                    <p><b>"Blood Pressure"</b></p>
+                    <br>
+                    <p>Diared-MP2</p>
+                    <div class="cart-item-actions">
+                        <label for="qty1">Qty: </label>
+                        <input type="number" id="qty1" value="1" min="1">
+                        <button class="remove-item">Remove</button>
+                        <button class="save-for-later">Save for later</button>
+                    </div>
+                    <div class="price">
+                        <p>Rs 150.00</p>
+                    </div>
+                </div>
+                                               
+            </div>
+
+            <hr>  
+
         </div>
+
         <div class="cart-summary">
             <h3>Summary</h3>
             <p>Total Items: 1</p>
             <p>Total Price: $10.00</p>
             <br>
             <button class="checkout-btn">Checkout</button>
-        </div>
+        </div>  
+           
     </div>
+    
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+ 
     <!-- JavaScript for Search -->
     <script>
         function searchFunction() {
