@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ortho Oil Product</title>
+    <link rel="stylesheet" href="style_4.css"> <!-- Ortho Oil specific CSS -->
+    <link rel="stylesheet" href="style2.css"> <!-- Include the navigation bar CSS -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        // Include dropdown functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('mouseenter', function () {
+                    this.querySelector('.dropdown-content').style.display = 'block';
+                });
+
+                dropdown.addEventListener('mouseleave', function () {
+                    this.querySelector('.dropdown-content').style.display = 'none';
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <hr>
+        <hr>
+        <div class="navbar-content">
+            <div class="logo">
+                <!-- Logo image before the text -->
+                <img src="logo.png" alt="Logo" width="60px" height="60px" style="vertical-align: middle;">
+                <h1 style="display: inline; vertical-align: middle; color: aliceblue;">Medi Sphere</h1>
+            </div>
+
+            <!-- Search Form (aligned to the right) -->
+
+        </div>
+        <hr>
+        <ul>
+            <li><a href="HOME.html"><span class="icon">
+                        <ion-icon name="home"></ion-icon>
+                    </span>HOME</a></li>
+            <li class="dropdown">
+                <a href="Health_Condition.html" class="dropbtn"><span class="icon">
+                        <ion-icon name="medkit"></ion-icon>
+                    </span>Health Condition</a>
+                <div class="dropdown-content">
+                    <div class="sub-dropdown">
+                        <a class="dropbtn">Infections</a>
+                        <div class="sub-dropdown-content">
+                            <a>Fever</a>
+                            <a>Cough</a>
+                            <a>Sore throat</a>
+                            <a href="Body_aches.html">Body aches</a>
+                            <a>Nausea</a>
+                            <a>Diarrhea</a>
+                            <a>Skin rash</a>
+                            <a>Fatigue</a>
+                            <a>Chills</a>
+                            <a>Headache</a>
+                        </div>
+                    </div>
+                    <div class="sub-dropdown">
+                        <a class="dropbtn">Blood Pressure</a>
+                        <div class="sub-dropdown-content">
+                            <a>Headache</a>
+                            <a>Dizziness</a>
+                            <a>Fatigue</a>
+                            <a>Chest pain</a>
+                            <a>Shortness of breath</a>
+                            <a>Palpitations</a>
+                            <a>Vision changes</a>
+                            <a>Nausea</a>
+                            <a>Sweating</a>
+                            <a>Tinnitus</a>
+                            <a>Sleep disturbances</a>
+                        </div>
+                    </div>
+                    <div class="sub-dropdown">
+                        <a class="dropbtn">Asthma</a>
+                        <div class="sub-dropdown-content">
+                            <a>Shortness of breath</a>
+                            <a>Coughing</a>
+                            <a>Wheezing</a>
+                            <a>Chest tightness</a>
+                            <a>Difficulty breathing</a>
+                            <a>Fatigue</a>
+                            <a>Anxiety</a>
+                            <a>Sleep disturbances</a>
+                            <a>Nasal Congestion</a>
+                            <a>Feeling tired</a>
+                        </div>
+                    </div>
+                    <div class="sub-dropdown">
+                        <a class="dropbtn">Diabetes</a>
+                        <div class="sub-dropdown-content">
+                            <a>Increased thirst</a>
+                            <a>Frequent urination</a>
+                            <a>Fatigue</a>
+                            <a>Blurred vision</a>
+                            <a>Slow healing sores</a>
+                            <a>Tingling in hands/feet</a>
+                            <a>Increased hunger</a>
+                            <a>Skin infections</a>
+                            <a>Mood changes</a>
+                            <a>Nausea</a>
+                        </div>
+                    </div>
+                    <div class="sub-dropdown">
+                        <a class="dropbtn">Ulcers</a>
+                        <div class="sub-dropdown-content">
+                            <a>Abdominal pain</a>
+                            <a>Bloating</a>
+                            <a>Nausea</a>
+                            <a>Heartburn</a>
+                            <a>Loss of appetite</a>
+                            <a>Fatigue</a>
+                            <a>Weight loss</a>
+                            <a>Indigestion</a>
+                            <a>Changes in stool</a>
+                            <a>Mouth sores</a>
+                        </div>
+                    </div>
+                    <div class="sub-dropdown">
+                        <a class="dropbtn">Heart Medicines</a>
+                        <div class="sub-dropdown-content">
+                            <a>Chest pain</a>
+                            <a>Shortness of breath</a>
+                            <a>Fatigue</a>
+                            <a>Palpitations</a>
+                            <a>Swelling in legs</a>
+                            <a>High blood pressure</a>
+                            <a>Anxiety</a>
+                            <a>Cold sweats</a>
+                            <a>Heart rhythm issues</a>
+                            <a>Fatigue after surgery</a>
+                        </div>
+                    </div>
+                    <div class="sub-dropdown">
+                        <a class="dropbtn">Obesity</a>
+                        <div class="sub-dropdown-content">
+                            <a>Weight gain</a>
+                            <a>Increased appetite</a>
+                            <a>Fatigue</a>
+                            <a>Joint pain</a>
+                            <a>Breathing difficulties</a>
+                            <a>High blood pressure</a>
+                            <a>Sleep apnea</a>
+                            <a>Insulin resistance</a>
+                            <a>Skin problems</a>
+                            <a>Emotional distress</a>
+                        </div>
+                    </div>
+                    <div class="sub-dropdown">
+                        <a class="dropbtn">Depression</a>
+                        <div class="sub-dropdown-content">
+                            <a>Persistent sadness</a>
+                            <a>Loss of interest</a>
+                            <a>Fatigue</a>
+                            <a>Changes in appetite</a>
+                            <a>Difficulty concentrating</a>
+                            <a>Sleep disturbances</a>
+                            <a>Feelings of hopelessness</a>
+                            <a>Irritability</a>
+                            <a>Social withdrawal</a>
+                            <a>Suicidal thoughts</a>
+                        </div>
+                    </div>
+                    <div class="sub-dropdown">
+                        <a class="dropbtn">Cholesterol Disorders</a>
+                        <div class="sub-dropdown-content">
+                            <a>High LDL cholesterol</a>
+                            <a>High total cholesterol</a>
+                            <a>High triglycerides</a>
+                            <a>Chest pain (angina)</a>
+                            <a>Fatigue</a>
+                            <a>Nausea</a>
+                            <a>Shortness of breath</a>
+                            <a>High blood pressure</a>
+                            <a>Yellowing of skin (jaundice)</a>
+                            <a>Family history of heart disease</a>
+                        </div>
+                    </div>
+                    <div class="sub-dropdown">
+                        <a class="dropbtn">Insomnia</a>
+                        <div class="sub-dropdown-content">
+                            <a>Difficulty falling asleep</a>
+                            <a>Waking up frequently</a>
+                            <a>Early morning awakening</a>
+                            <a>Poor sleep quality</a>
+                            <a>Daytime fatigue</a>
+                            <a>Anxiety about sleep</a>
+                            <a>Stress-induced insomnia</a>
+                            <a>Restlessness</a>
+                            <a>Irritability due to lack of sleep</a>
+                            <a>Sleep disruptions from noise</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="Medicines.html" class="dropbtn"><span class="icon">
+                        <ion-icon name="nutrition"></ion-icon>
+                    </span>Nutrition Supplements</a>
+                <div class="dropdown-content">
+                    <a>Ayurvedics</a>
+                    <a>Herbal</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="Health_Care.html" class="dropbtn"><span class="icon">
+                        <ion-icon name="thermometer"></ion-icon>
+                    </span>Health Care</a>
+                <div class="dropdown-content">
+                    <a>Ayurvedics</a>
+                    <a>Herbal</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="Health_Corner.html" class="dropbtn"><span class="icon">
+                        <ion-icon name="heart"></ion-icon>
+                    </span>Health Corner</a>
+                <div class="dropdown-content">
+                    <a>Ayurvedics</a>
+                    <a>Herbal</a>
+                </div>
+            </li>
+            <li><a href="Cart.html"><span class="icon">
+                        <ion-icon name="cart"></ion-icon>
+                    </span>Cart</a></li>
+            <li class="dropdown">
+                <a href="Profile.html" class="dropbtn"><span class="icon">
+                        <ion-icon name="people"></ion-icon>
+                    </span>Profile</a>
+                <div class="dropdown-content">
+                    <a>Orders</a>
+                    <a>Refills</a>
+                </div>
+        </ul>
+        <hr>
+        <hr>
+    </nav>
+    <div class="medicine-detail-section">
+        <div class="header-container">
+            <img src="Ortho_oil.png" alt="Dr. Ortho Oil" class="product-image">
+            <div class="product-info">
+                <h1>Dr. Ortho Oil</h1>
+                <div class="product-details">
+                    <h2 class="price">Price: ₹295</h2>
+                    <h3>Quantity: 120 ml</h3>
+                    <h3>Brand: Dr. Ortho</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-header" onclick="toggleDetails()">
+            <h3>Product Details</h3>
+            <span class="arrow">↓</span>
+        </div>
+
+        <div class="details" id="product-details" style="display: none;">
+            <h4>Description:</h4>
+            <p>
+                Dr. Ortho Oil is an ayurvedic remedy designed to relieve various joint discomforts, including knee pain,
+                back pain, elbow pain, neck pain, shoulder pain, and more. It is formulated with eight natural herbs,
+                ensuring the preservation of their therapeutic properties. The oil is potent, offering relief from
+                muscle discomfort and inflammation, with a smooth, non-sticky texture that absorbs easily into the skin.
+            </p>
+
+            <h4>Side effects:</h4>
+            <ul>
+                <li>Skin Irritation: Redness, itching, or rashes at the application site.</li>
+                <li>Allergic Reactions: Swelling, hives, or other allergic symptoms.</li>
+                <li>Burning Sensation: A mild burning or stinging feeling when applied.</li>
+                <li>Dryness of Skin: Prolonged use may lead to skin dryness in the affected area.</li>
+            </ul>
+
+            <h4>Directions for Use:</h4>
+            <p>Massage 5 ml to 10 ml of oil onto the affected areas twice daily or as directed by a physician.</p>
+
+        </div>
+
+        <div class="button-container">
+            <button onclick="window.location.href='Cart.html'">Add to Cart</button>
+            <button onclick="window.history.back()">Go Back</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleDetails() {
+            var details = document.getElementById('product-details');
+            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+
+</html>
