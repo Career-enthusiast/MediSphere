@@ -18,22 +18,28 @@ body {
     overflow-x: hidden;
     /* Prevent horizontal scroll */
 }
-
+.header{
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+}
 /* Navigation bar styling */
 .navbar {
-    position: relative;
+    margin-top: -50px;
+    position:fixed;
     z-index: 10;
-    margin-right: 0px;
+   
 }
 
 /* Flex container for logo and search bar */
 .navbar-content {
     display: flex;
     justify-content: space-between;
+  
     /* Pushes logo to the left and search to the right */
     align-items: center;
     /* Align items vertically in the center */
-    padding: 10px;
+    padding: 15px;
     background: linear-gradient(135deg, #4b4be5, #0a0aab);
     /*  #0a0aabTransparent background */
 }
@@ -48,37 +54,50 @@ body {
     display: inline;
     vertical-align: middle;
 }
+.searchbar-container {
+    margin-top: -20px;
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    background-color: hsl(237, 49%, 63%);
+    transition: transform 2s ease;
+    transform: translateY(0) scaleY(1); /* Initial size */
+    will-change: transform, justify-content;
+    /* Smooth transition */
 
-/* Search bar styling */
+}
+
+.searchbar-container.scroll-right {
+    justify-content: flex-end;
+    padding-right: 20px;
+    transform: translateY(-10px) scaleY(0.7);
+     /* Adjust as needed */
+}
+
 .search-form {
     display: flex;
-    /* Inline alignment of input and button */
-    align-items: center;
-    align-content: center;
+    transition: transform 2s ease;
+    transform: scalex(1); /* Initial scale */
+}
+.searchbar-container.scroll-right .search-form {
+    transform: scalex(0.7); /* Reduce vertical size of the form */
 }
 
 #search-input {
-    align-items: center;
-    align-content: center;
-    padding: 6px;
+    padding: 10px;
     border: 2px solid #811c1c;
     border-radius: 16px;
     font-size: 15px;
-    color: #333;
-    width: 300px;
-    /* Adjust width of search input */
+    width: 600px;
     margin-right: 10px;
 }
 
 button[type="submit"] {
     background: none;
-    align-items: center;
-    align-content: center;
     border: none;
     cursor: pointer;
     color: rgb(160, 16, 16);
     font-size: 20px;
-    margin-right: 100px;
 }
 
 /* Dropdown styling */
@@ -179,26 +198,35 @@ li.dropdown {
 .carousel {
     position: relative;
     max-width: 100%;
+    max-height: 100%;
     margin: auto;
     overflow: hidden;
+    z-index: 10;
 }
 
 .carousel-slides {
+    object-fit: cover;
+    margin-top: 190px;
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    object-fit: cover;
+    max-height: 100%;
+    transition: transform 1s ease-in-out;
     /* Smooth transition */
 }
 
 .slide {
     min-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
     /* Each slide takes full width */
-    transition: opacity 1s ease;
+    transition: opacity 0.5s ease;
 }
 
 .slide img {
     width: 100%;
+    object-fit: cover;
     /* Make images responsive */
-    height: auto;
+    max-height: 100%;
     /* Maintain aspect ratio */
 }
 
@@ -225,13 +253,17 @@ li.dropdown {
 .carousel {
     position: relative;
     max-width: 100%;
+    object-fit: cover;
     margin: auto;
     overflow: hidden;
+    z-index: 9;
+    
 }
 
 .carousel-slides {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    
     /* Smooth transition */
 }
 
@@ -244,7 +276,7 @@ li.dropdown {
 .slide img {
     width: 100%;
     /* Make images responsive to the carousel */
-    height: 380px;
+    height: 100%;
     /* Fixed height for all images */
     object-fit: cover;
     /* Crop images to fit the specified height without distortion */
@@ -435,7 +467,6 @@ h2 {
     position: relative;
     max-width: 100%;
     margin: auto;
-    overflow: hidden;
     margin-bottom: 20px;
     /* Adds space below the carousel */
     margin-top: 50px;
