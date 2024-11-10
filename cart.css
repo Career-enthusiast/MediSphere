@@ -1,4 +1,3 @@
-/* General Reset */
 * {
     padding: 0;
     margin: 0;
@@ -7,29 +6,42 @@
 }
 
 body {
-    margin: 0; /* Remove default margin */
-    padding: 0;
-    min-height: 100vh; /* Ensure the background covers the viewport height */
-    background-image: url('card_back.png'); /* Replace with your image URL */
-    background-size: cover; /* Ensure the image covers the entire screen */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    background-attachment: fixed; /* Keep the image fixed on scroll */
+    /* background-image: url("doctor.jpg"); */
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    height: 100vh;
+    /* Full viewport height */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
 }
-
+.header{
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+}
 /* Navigation bar styling */
 .navbar {
-    position: relative;
+    margin-top: -80px;
+    position:fixed;
     z-index: 10;
+    width: 100%;
+   
 }
 
 /* Flex container for logo and search bar */
 .navbar-content {
     display: flex;
-    justify-content: space-between; /* Pushes logo to the left and search to the right */
-    align-items: center; /* Align items vertically in the center */
-    padding: 10px;
-    background-color: rgba(36, 101, 106, 0.65); /* Transparent background */
+    justify-content: space-between;
+  
+    /* Pushes logo to the left and search to the right */
+    align-items: center;
+    /* Align items vertically in the center */
+    padding: 15px;
+    background: linear-gradient(135deg, #4b4be5, #0a0aab);
+    /*  #0a0aabTransparent background */
 }
 
 .logo img {
@@ -42,20 +54,41 @@ body {
     display: inline;
     vertical-align: middle;
 }
+.searchbar-container {
+    margin-top: 80px;
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    background-color: hsl(237, 49%, 63%);
+    transition: transform 2s ease;
+    transform: translateY(0) scaleY(1); /* Initial size */
+    will-change: transform, justify-content;
+    /* Smooth transition */
 
-/* Search bar styling */
+}
+
+.searchbar-container.scroll-right {
+    justify-content: flex-end;
+    padding-right: 20px;
+    transform: translateY(-10px) scaleY(0.7);
+     /* Adjust as needed */
+}
+
 .search-form {
-    display: flex; /* Inline alignment of input and button */
-    align-items: end;
+    display: flex;
+    transition: transform 2s ease;
+    transform: scalex(1); /* Initial scale */
+}
+.searchbar-container.scroll-right .search-form {
+    transform: scalex(0.7); /* Reduce vertical size of the form */
 }
 
 #search-input {
-    padding: 6px;
-    border: 2px solid #ffffff;
+    padding: 10px;
+    border: 2px solid #811c1c;
     border-radius: 16px;
     font-size: 15px;
-    color: #333;
-    width: 300px; /* Adjust width of search input */
+    width: 600px;
     margin-right: 10px;
 }
 
@@ -63,15 +96,15 @@ button[type="submit"] {
     background: none;
     border: none;
     cursor: pointer;
-    color: white;
+    color: rgb(160, 16, 16);
     font-size: 20px;
-    margin-right: 100px;
 }
 
-/* Navbar links styling */
+/* Dropdown styling */
 .navbar ul {
     list-style-type: none;
-    background-color: rgba(36, 101, 106, 0.65); /* Transparent background for navbar */
+    background: linear-gradient(135deg, #4b4be5, #3d3db9);
+    /*  #0a0aabTransparent background */
     padding: 10px;
     margin-top: 0px;
     overflow: hidden;
@@ -86,7 +119,7 @@ button[type="submit"] {
 }
 
 .navbar a:hover {
-    background-color: rgba(36, 101, 106, 0.65);
+    background-color: #0a0aab;
 }
 
 .navbar li {
@@ -94,8 +127,9 @@ button[type="submit"] {
     margin-left: 30px;
 }
 
-/* Dropdown menu */
-li a, .dropbtn {
+/* Main dropdown menu */
+li a,
+.dropbtn {
     display: inline-block;
     text-align: center;
     padding: 16px 16px;
@@ -109,24 +143,62 @@ li.dropdown {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgba(36, 101, 106, 0.65);
+    background-color: rgba(144, 88, 233, 0.95);
     min-width: 160px;
     z-index: 1;
 }
 
 .dropdown-content a {
-    color: rgb(21, 6, 6);
+    color: rgb(0, 0, 0);
     padding: 10px 10px;
     text-decoration: none;
     display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
+/* Sub-dropdown for "Infections" */
+.sub-dropdown {
+    position: relative;
+}
+
+.sub-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 160px;
+    /* Aligns to the right of the main dropdown */
+    background-color: rgba(191, 101, 209, 0.95);
+    min-width: 160px;
+    z-index: 2;
+}
+
+.sub-dropdown-content a {
+    color: rgb(0, 0, 0);
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.sub-dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Show sub-dropdown when hovering over "Infections" */
+.sub-dropdown:hover .sub-dropdown-content {
+    display: block;
+}
+
 /* Cart Container */
 .cart-container {
+
+    transform: translateY(200px) translateX(10px);
     background-color: rgba(234, 241, 242, 0.65);
     padding: 20px;
     border-radius: 8px;
