@@ -1,0 +1,85 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Medicine Section */
+.medicine-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Medicine List Layout */
+.medicine-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Individual Medicine Item */
+.medicine-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.medicine-item:hover {
+    transform: scale(1.05);
+}
+
+/* Medicine Image */
+.medicine-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Medicine Info */
+.medicine-item p {
+    margin: 10px 0;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Button Styling */
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .medicine-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .medicine-item {
+        width: 90%;
+    }
+}

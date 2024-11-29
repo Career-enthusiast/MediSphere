@@ -1,0 +1,124 @@
+body {
+    background-color: #b0d4e3; /* Light blue background */
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 50%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #b0d4e3;
+    border-radius: 8px;
+}
+
+.address-container, .payment-container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+textarea {
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.use-address-button, .use-payment-button, .confirm-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.confirm-button {
+    background-color: #FFA500;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.payment-option {
+    padding: 10px 0;
+}
+
+.card-icons img {
+    width: 40px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.payment-option input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.payment-option p {
+    color: #008000;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.payment-option input[type="radio"] {
+    margin-right: 5px;
+}
+
+.success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #4CAF50; /* Green background */
+    text-align: center;
+}
+
+.success-icon {
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.success-icon img {
+    width: 60px;
+    height: 60px;
+}
+
+h2 {
+    color: #000;
+    font-size: 24px;
+    margin: 0;
+}
+
+p {
+    color: #000;
+    font-size: 18px;
+    margin-top: 10px;
+}
