@@ -1,0 +1,343 @@
+/* General Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Body Style */
+body {
+    height: 100vh;
+    margin: 0;
+    padding-left: 30px;
+    background-color: #f3f4f6;
+    /* Light background color */
+    overflow: hidden;
+}
+
+/* Container holding both product details and customer reviews */
+.product-container {
+    display: flex; /* This makes the two sections appear side by side */
+    gap: 30px; /* Space between the two blocks */
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Medicine Detail Section */
+.medicine-detail-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #ffffff;
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 170px);
+    width: calc(100vw - 60px);
+    overflow-y: auto;
+}
+
+/* Header Container */
+.header-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+/* Image Styling */
+.product-image {
+    width: 45%;
+    height: auto;
+    border-radius: 12px;
+    margin-right: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    /* Add shadow for better focus */
+}
+
+/* Product Info Container */
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Heading Styles */
+.product-info h1 {
+    font-size: 2em;
+    color: #333333;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Product Details Styles */
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Price Styles */
+.product-info .price {
+    font-size: 1.6em;
+    color: #ff5722;
+    /* Bold color for price */
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Additional Details */
+.product-details h3 {
+    font-size: 1.2em;
+    color: #555555;
+}
+
+/* Toggleable Details Section */
+.details-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #333333;
+}
+
+.arrow {
+    font-size: 1.5em;
+    margin-left: 10px;
+}
+
+/* Details Content */
+.details {
+    display: none;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+/* Subheading Styles */
+.details h4 {
+    font-size: 1.4em;
+    color: #333333;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+/* Paragraph and List Styling */
+.medicine-detail-section p,
+.medicine-detail-section ul {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #444444;
+    margin-bottom: 20px;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Button Styling */
+.medicine-detail-section button {
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.medicine-detail-section button:hover {
+    background-color: #ffc107;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .medicine-detail-section {
+        padding: 15px;
+        width: 100%;
+    }
+
+    /* Container holding both product details and customer reviews */
+    .product-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        /* Adjust the space between the two blocks */
+    }
+
+    /* Medicine Details Section */
+    .medicine-detail-section {
+        flex: 1;
+        /* Allow it to take up available space */
+        max-width: 65%;
+        /* Limit width to leave room for reviews */
+    }
+
+    /* Customer Reviews Section */
+    .customer-reviews-section {
+        width: 300px;
+        /* Set fixed width for reviews section */
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive Adjustments for smaller screens */
+    @media (max-width: 768px) {
+        .product-container {
+            flex-direction: column;
+            /* Stack sections vertically on smaller screens */
+        }
+
+        .medicine-detail-section,
+        .customer-reviews-section {
+            max-width: 100%;
+            /* Allow both to take full width */
+            width: 100%;
+        }
+    }
+
+    .product-image {
+        width: 100%;
+        margin-bottom: 20px;
+        /* Separate image on smaller screens */
+    }
+
+    .product-info h1 {
+        font-size: 1.8em;
+    }
+
+    .product-info .price {
+        font-size: 1.4em;
+    }
+
+    .product-details h3 {
+        font-size: 1em;
+    }
+
+    .arrow {
+        font-size: 1.2em;
+    }
+
+    .medicine-detail-section button {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+}
+
+/* Customer Reviews Section */
+.customer-reviews-section {
+    width: 300px;
+    /* Adjust width as needed */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Heading */
+.customer-reviews-section h2 {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Rating Summary */
+.rating-summary {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.average-rating {
+    font-size: 2em;
+    color: #f39c12;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.stars {
+    color: #f39c12;
+    font-size: 1.4em;
+    margin-right: 8px;
+}
+
+.total-reviews {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Reviews List */
+.reviews-list {
+    max-height: 300px;
+    /* Limit height for scrolling */
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 15px;
+}
+
+.review {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.review-rating {
+    color: #f39c12;
+    font-size: 1.2em;
+}
+
+.review-text {
+    font-size: 1em;
+    color: #333;
+    margin: 5px 0;
+}
+
+.review-author {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+}
+
+/* Button */
+.write-review-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    /* Full width button */
+    text-align: center;
+}
+
+.write-review-button:hover {
+    background-color: #0056b3;
+}
+
+/* Scrollbar styling for reviews list */
+.reviews-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.reviews-list::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 5px;
+}
+
+.reviews-list::-webkit-scrollbar-thumb:hover {
+    background-color: #888;
+}
