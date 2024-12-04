@@ -1,6 +1,15 @@
 <?php
 session_start(); // Start session to access session variables
 
+// Include PHPMailer classes
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require 'phpmailer/src/Exception.php';
+require 'phpmailer/src/PHPMailer.php';
+require 'phpmailer/src/SMTP.php';
+
 // Database connection
 $host = 'localhost';
 $dbname = 'medisphere';
@@ -21,7 +30,26 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$user_id = $_SESSION['user_id'];
+  // Get the user_id from session
+  $user_id = $_SESSION['user_id'];
+
+  // Prepare SQL query using PDO
+  $sql = "SELECT email FROM Users WHERE user_id = :user_id";
+  $stmt = $conn->prepare($sql);
+  $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT); // Bind user_id to the prepared statement
+
+  // Execute the statement
+  $stmt->execute();
+
+  // Fetch the result
+  if ($stmt->rowCount() > 0) {
+      // Fetch the user's email
+      $user = $stmt->fetch(PDO::FETCH_ASSOC);
+      $user_email = $user['email'];
+     
+  } else {
+      echo "User not found!";
+  }
 
 // Debugging: Check if total amount is set
 if (isset($_SESSION['total_amount'])) {
@@ -46,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm_payment'])) {
 
     if ($stmt->execute()) {
         $order_id = $conn->lastInsertId(); // Get the order_id of the inserted order
-
+    
         // Fetch the cart items for the user
         $cartQuery = "SELECT c.medication_id, c.quantity, m.price 
                       FROM cart c
@@ -56,24 +84,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm_payment'])) {
         $cartStmt->bindParam(':cart_id', $user_id);
         $cartStmt->execute();
         $cart_items = $cartStmt->fetchAll(PDO::FETCH_ASSOC);
-
+    
         // Insert each cart item into the order_details table
         $insertOrderDetailsQuery = "INSERT INTO order_details (order_id, medication_id, quantity, price) 
                                     VALUES (:order_id, :medication_id, :quantity, :price)";
         $orderDetailsStmt = $conn->prepare($insertOrderDetailsQuery);
-
+    
         foreach ($cart_items as $item) {
             $total_price = $item['quantity'] * $item['price']; // Calculate the price (quantity * price)
-
+    
             // Insert into order_details table
             $orderDetailsStmt->bindParam(':order_id', $order_id);
             $orderDetailsStmt->bindParam(':medication_id', $item['medication_id']);
             $orderDetailsStmt->bindParam(':quantity', $item['quantity']);
             $orderDetailsStmt->bindParam(':price', $total_price);
-
+    
             $orderDetailsStmt->execute(); // Insert the order details
         }
-
+    
         // Insert the payment method into the payment_methods table
         $insertPaymentQuery = "INSERT INTO payment_methods (order_id, payment_type, card_number) 
         VALUES (:order_id, :payment_type, :card_number)";
@@ -82,13 +110,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['confirm_payment'])) {
         $paymentStmt->bindParam(':payment_type', $payment_type);
         $paymentStmt->bindParam(':card_number', $card_number);
         $paymentStmt->execute();
+    
+       // Send order confirmation email using PHPMailer
+    //    $user_email = $_SESSION['email']; // Assuming user email is stored in session
+       $refill_date = date('Y-m-d', strtotime($order_date . ' + 30 days')); // Example refill date logic
 
-        // Redirect to the success page
-        header("Location: payment_successful.php");
-        exit();
-    } else {
-        echo "Failed to process the order. Please try again.";
-    }
+       // Create PHPMailer instance
+       $mail = new PHPMailer(true);
+       try {
+           // Server settings
+           $mail->isSMTP();
+           $mail->Host = 'smtp.gmail.com';
+           $mail->SMTPAuth = true;
+           $mail->Username = 'fameventremainder@gmail.com'; // Your Gmail email
+           $mail->Password = 'sdwa meeo clmp gcpl'; // Your Gmail app password
+           $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+           $mail->Port = 587;
+
+           // Recipients
+           $mail->setFrom('fameventremainder@gmail.com', 'Medisphere');
+           $mail->addAddress($user_email,'Poojitha'); // Send to user email
+           $mail->addReplyTo('fameventremainder@gmail.com', 'Medisphere');
+           
+           // Content
+           $mail->isHTML(true);
+           $mail->Subject = "Order Confirmation - Order #$order_id";
+           $mail->Body = "Dear Customer,<br><br>Thank you for placing your order on $order_date.<br>Your next refill date is scheduled for $refill_date.<br><br>Regards,<br>Medisphere";
+           $mail->AltBody = "Dear Customer,\n\nThank you for placing your order on $order_date.\nYour next refill date is scheduled for $refill_date.\n\n<b>Regards,\nMedisphere</b>";
+
+           // Send the email
+           $mail->send();
+           echo "Order confirmation email sent!";
+       } catch (Exception $e) {
+           echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+       }
+   
+       // Redirect to the success page
+       header("Location: payment_successful.php");
+       exit();
+   } else {
+       echo "Failed to process the order. Please try again.";
+   }
 }
 
 ?>
